@@ -1,0 +1,1395 @@
+/* =============================================
+       RESET Y VARIABLES
+    ============================================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --negro: #080807;
+    --dorado: #c8a020;
+    --dorado-claro: #e8c84a;
+    --dorado-tenue: rgba(200, 160, 32, 0.35);
+    --crema: #f5f0dc;
+    --crema-oscura: #d4c89a;
+    --naranja-vela: #f9a825;
+    --texto-claro: #e8e0d0;
+    --texto-apagado: #a09070;
+    --ventanasPergamino: #BFB09D;
+    --marronPergamino: #3E2723;
+    --grisFondoP: rgba(255, 255, 255, 0.3);
+
+    /* Variables de Fuentes */
+    --f-titulo: "Almendra", serif;
+    --f-acentos: "Cinzel", serif;
+    --f-cuerpo: "Montserrat", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--negro);
+    color: var(--texto-claro);
+
+
+}
+
+
+
+
+
+
+
+/* =============================================
+       HEADER 
+    ============================================= */
+header {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Fondo que simula iluminacion */
+header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(200, 160, 32, 0.07) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Viñeta en los bordes */
+header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.85) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* =============================================
+       VELAS
+    ============================================= */
+.vela {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    animation: flotar ease-in-out infinite;
+}
+
+/* Llama */
+.vela-llama {
+    width: 12px;
+    height: 18px;
+    background: radial-gradient(ellipse at 50% 80%,
+            #fffde7 0%,
+            #ffee58 30%,
+            var(--naranja-vela) 60%,
+            #e65100 100%);
+    border-radius: 50% 50% 20% 20%;
+    position: relative;
+    animation: parpadear ease-in-out infinite;
+    filter: blur(0.4px);
+}
+
+/* Reflejo de la llama */
+.vela-llama::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: rgba(249, 168, 37, 0.5);
+    border-radius: 50%;
+    filter: blur(3px);
+}
+
+/* Mecha */
+.vela-mecha {
+    width: 2px;
+    height: 8px;
+    background: #4a3000;
+}
+
+/* Cuerpo */
+.vela-cuerpo {
+    width: 18px;
+    height: 64px;
+    background: linear-gradient(to right,
+            #e0d9c0 0%,
+            var(--crema) 40%,
+            #f5f0dc 60%,
+            #c8c0a0 100%);
+    border-radius: 2px 2px 1px 1px;
+    position: relative;
+}
+
+/* Goteo de cera */
+.vela-cuerpo::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 4px;
+    width: 10px;
+    height: 8px;
+    background: var(--crema);
+    border-radius: 50%;
+}
+
+/* Base */
+.vela-base {
+    width: 22px;
+    height: 6px;
+    background: linear-gradient(to bottom, #c8c0a0, #a09060);
+    border-radius: 0 0 3px 3px;
+}
+
+/* Posiciones de cada vela */
+.v1 {
+    top: 6%;
+    left: 10%;
+    animation-duration: 3.2s;
+    animation-delay: 0.0s;
+}
+
+.v2 {
+    top: 52%;
+    left: 7%;
+    animation-duration: 2.8s;
+    animation-delay: 0.7s;
+}
+
+.v3 {
+    top: 78%;
+    left: 14%;
+    animation-duration: 3.6s;
+    animation-delay: 1.2s;
+}
+
+.v4 {
+    top: 8%;
+    left: 26%;
+    animation-duration: 3.0s;
+    animation-delay: 1.9s;
+}
+
+.v5 {
+    top: 65%;
+    left: 23%;
+    animation-duration: 3.4s;
+    animation-delay: 0.4s;
+}
+
+.v6 {
+    top: 6%;
+    right: 10%;
+    animation-duration: 3.3s;
+    animation-delay: 0.5s;
+}
+
+.v7 {
+    top: 52%;
+    right: 7%;
+    animation-duration: 2.9s;
+    animation-delay: 1.4s;
+}
+
+.v8 {
+    top: 78%;
+    right: 14%;
+    animation-duration: 3.7s;
+    animation-delay: 0.9s;
+}
+
+.v9 {
+    top: 8%;
+    right: 26%;
+    animation-duration: 3.1s;
+    animation-delay: 2.2s;
+}
+
+.v10 {
+    top: 65%;
+    right: 23%;
+    animation-duration: 3.5s;
+    animation-delay: 1.6s;
+}
+
+/* Llamas con delays propios */
+.v1 .vela-llama {
+    animation-duration: 1.8s;
+    animation-delay: 0.2s;
+}
+
+.v2 .vela-llama {
+    animation-duration: 2.1s;
+    animation-delay: 0.6s;
+}
+
+.v3 .vela-llama {
+    animation-duration: 1.6s;
+    animation-delay: 1.0s;
+}
+
+.v4 .vela-llama {
+    animation-duration: 2.3s;
+    animation-delay: 0.3s;
+}
+
+.v5 .vela-llama {
+    animation-duration: 1.9s;
+    animation-delay: 0.8s;
+}
+
+.v6 .vela-llama {
+    animation-duration: 2.0s;
+    animation-delay: 0.1s;
+}
+
+.v7 .vela-llama {
+    animation-duration: 1.7s;
+    animation-delay: 1.5s;
+}
+
+.v8 .vela-llama {
+    animation-duration: 2.2s;
+    animation-delay: 0.5s;
+}
+
+.v9 .vela-llama {
+    animation-duration: 1.5s;
+    animation-delay: 1.8s;
+}
+
+.v10 .vela-llama {
+    animation-duration: 2.4s;
+    animation-delay: 0.7s;
+}
+
+@keyframes flotar {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(0.5deg);
+    }
+}
+
+@keyframes parpadear {
+
+    0%,
+    100% {
+        transform: scaleX(1) scaleY(1);
+        opacity: 1;
+    }
+
+    40% {
+        transform: scaleX(0.8) scaleY(1.15);
+        opacity: 0.9;
+    }
+
+    70% {
+        transform: scaleX(1.1) scaleY(0.9);
+        opacity: 0.95;
+    }
+}
+
+
+/* =============================================
+       CONTENIDO CENTRAL
+    ============================================= */
+.header-centro {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    padding: 40px 20px;
+    animation: aparecer 1.2s ease-out both;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =============================================
+       AVATAR
+    ============================================= */
+
+.avatar-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 2rem;
+    /* 2rem = ~32px pero se adapta al tamaño de fuente del navegador */
+}
+
+
+
+/* Anillo exterior decorativo */
+.avatar-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 160, 32, 0.3);
+    animation: girar 20s linear infinite;
+}
+
+/* Puntos decorativos en el anillo */
+.avatar-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 1px dashed rgba(200, 160, 32, 0.15);
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.avatar-circulo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 32%,
+            #d4a830 0%,
+            #8a6010 50%,
+            #3a2000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    animation: brillar 3s ease-in-out infinite;
+}
+
+@keyframes brillar {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 16px 6px rgba(200, 160, 32, 0.3),
+            0 0 40px 16px rgba(200, 160, 32, 0.12);
+    }
+
+    50% {
+        box-shadow:
+            0 0 28px 12px rgba(200, 160, 32, 0.55),
+            0 0 70px 28px rgba(200, 160, 32, 0.22);
+    }
+}
+
+/* Si usás <img> como avatar */
+.avatar-circulo img {
+    width: 70%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 1%;
+    /* bajá o subí este % hasta que quede bien */
+}
+
+
+
+
+/* =============================================
+       TEXTO
+    ============================================= */
+
+.header-titulo {
+    font-family: var(--f-titulo);
+
+    font-size: clamp(1.375rem, 4vw, 2.5rem);
+    /* clamp( MÍNIMO, PREFERIDO, MÁXIMO ) */
+    font-weight: 400;
+    color: var(--texto-claro);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.nombre {
+    font-family: var(--f-titulo);
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--dorado);
+    font-style: normal;
+    letter-spacing: 2px;
+}
+
+.header-sub {
+    font-family: var(--f-acentos);
+    font-size: clamp(1rem, 1.5vw, 2.5rem);
+    font-weight: 400;
+    color: var(--crema-oscura);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.3px;
+}
+
+/* Diamante decorativo */
+.diamante {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--dorado);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+}
+
+.diamante--pequeno {
+    width: 5px;
+    height: 5px;
+    background: var(--dorado-claro);
+    opacity: 0.6;
+}
+
+
+/* =============================================
+       SEPARADOR
+    ============================================= */
+
+.separador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 200px;
+}
+
+.sep-linea {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #5a4a20, transparent);
+}
+
+
+/* =============================================
+       BOTÓN
+    ============================================= */
+
+.btn-explorar {
+    display: inline-block;
+    padding: 0.75rem 2.25rem;
+    border: 1.5px solid var(--dorado);
+    color: var(--dorado);
+    font-family: var(--f-acentos);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1875rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease, background 0.3s ease;
+    margin-top: 0.25rem;
+    z-index: 10;
+}
+
+
+
+/* Efecto fill al hover */
+.btn-explorar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--dorado);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+
+    z-index: -1;
+}
+
+.btn-explorar:hover {
+    color: var(--negro);
+}
+
+.btn-explorar:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* =============================================
+       Explorar, parte de las cartas
+    ============================================= */
+
+.fondoA {
+    background-color: black;
+    background-image: url('img/suelo2.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+}
+
+
+
+
+
+
+h2 {
+    font-family: var(--f-titulo);
+    color: var(--dorado);
+    text-align: center;
+}
+
+
+.titulo-decorado {
+    font-size: clamp(2rem, 5vw, 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 6rem;
+    margin-bottom: 4rem;
+    line-height: 1;
+}
+
+
+.titulo-decorado::before,
+.titulo-decorado::after {
+    content: "";
+    height: 1px;
+    background-color: var(--dorado-claro);
+    flex-grow: 1;
+    max-width: 300px;
+
+    /*  degradado */
+    background: radial-gradient(ellipse at center, var(--dorado-claro) 0%, transparent 80%);
+}
+
+
+
+
+
+
+
+
+h3 {
+    font-family: var(--f-acentos);
+    color: var(--crema);
+    font-size: clamp(1rem, 5vw, 2rem);
+
+    letter-spacing: 2px;
+    margin-bottom: 10rem;
+}
+
+.cartas-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+
+}
+
+.cartas-container article {
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  
+}
+
+.cartas-container article:hover {
+    /* Efecto de resplandor y movimiento */
+
+    filter: drop-shadow(0 0 15px var(--dorado-claro));
+
+    transform: translateY(-10px);
+}
+
+
+
+
+
+
+/* =============================================
+       CONTENIDO de las cartas
+    ============================================= */
+
+/* =============================================
+       CARTA RAICES
+    ============================================= */
+
+
+
+.fondo-suelo {
+
+    background-color: black;
+    background-image: url('img/suelo3.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    min-height: 90vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+
+
+.pergamino-wrapper {
+    background-image: url('img/pergamino.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 10% auto;
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 60px 80px 60px;
+    position: relative;
+}
+
+.tampergamino1{
+    min-height: 1100px;
+}
+
+
+.pergamino-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+
+.titulo-pergamino {
+
+    font-family: var(--f-titulo);
+    color: var(--marronPergamino);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-top: 5%;
+}
+
+/*  AVATAR */
+
+.avatarRaices1 {
+
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 11rem;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+  
+}
+
+
+
+
+
+
+.texto-pergamino {
+    color: var(--marronPergamino);
+    font-size: clamp(1.25rem, 2vw, 2.25rem);
+    font-weight: 400;
+    font-style: italic;
+
+    margin-bottom: 9%;
+}
+
+.espaciador {
+    flex-grow: 1;
+    width: 100%;
+  
+}
+
+
+
+
+.btn-explorar2 {
+    display: inline-block;
+    padding: 0.75rem 2.25rem;
+    border: 1.5px solid var(--marronPergamino);
+    color: var(--marronPergamino);
+    font-family: var(--f-acentos);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1875rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease, background 0.3s ease;
+    margin-top: 0.25rem;
+    z-index: 10;
+}
+
+
+
+/* Efecto fill al hover */
+.btn-explorar2::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--marronPergamino);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+
+    z-index: -1;
+}
+
+.btn-explorar2:hover {
+    color: var(--crema);
+}
+
+.btn-explorar2:hover::before {
+    transform: scaleX(1);
+}
+
+
+
+
+
+/* Ocultar las secciones  */
+.seccion-oculta {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+
+.seccion-oculta:target {
+    display: block;
+    opacity: 1;
+}
+
+/* para que no hereden subrayado azul */
+.carta-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+
+/* CELDAS */
+
+
+
+
+/* Contenedor principal */
+.cuadrados {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilo para cada tarjeta individual */
+.cuadrados>div {
+    background-color: var(--grisFondoP);
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+
+
+/* Iconos */
+.cuadrados img {
+    width: 20%;
+    margin-bottom: 15px;
+    filter: sepia(0.5);
+}
+
+
+
+/* Títulos (Punto de origen, y los otros 3 ) */
+.cuadrados h3 {
+    text-transform: uppercase;
+    font-size: clamp(0.5rem, 3vw, 1.25rem);
+    font-family: var(--f-acentos);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--marronPergamino);
+    display: block;
+    width: fit-content;
+    padding-bottom: 5px;
+    color: var(--marronPergamino);
+}
+
+
+
+/* Párrafos */
+.cuadrados p {
+    font-size: clamp(0.25rem, 1.2vw, 0.95rem);
+    font-family: var(--f-cuerpo);
+    line-height: 1.4;
+    color: var(--marronPergamino);
+}
+
+
+
+
+
+/* PARTE 2 DE RAICES */
+
+
+.titulo2 {
+    font-family: var(--f-titulo);
+    color: var(--marronPergamino);
+    font-weight: 700;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-top: 5%;
+    text-align: left;
+    margin-left: 13%;
+}
+
+
+
+.seccion-alfonsin {
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contenido-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+
+.contenedortexto {
+    flex: 1;
+}
+
+.fondotexto {
+    background-color: var(--grisFondoP);
+    padding: 2%;
+    color: var(--negro);
+    font-family: var(--f-cuerpo);
+    font-size: clamp(0.30rem, 1.5vw, 1rem);
+    line-height: 1.4;
+}
+
+.refuerzo {
+    margin-top: 3%;
+}
+
+
+
+
+.contenedortexto p {
+    font-family: var(--f-cuerpo);
+    font-size: clamp(0.30rem, 1.5vw, 1rem);
+    color: var(--negro);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    max-width: 400px;
+}
+
+
+.video-container1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.video-container1 video {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.525);
+    padding: 15px 15px 40px 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    /* Rotación */
+    transform: rotate(3deg);
+    transition: transform 0.3s ease;
+}
+
+.video-container1 video:hover {
+    transform: rotate(0deg);
+}
+
+/* En celulares se pone uno debajo del otro */
+@media (max-width: 768px) {
+    .contenido-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .titulo2 {
+        text-align: center;
+        margin-left: 0;
+    }
+}
+
+
+/* 2 */
+
+
+.videosyavatar {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 50px auto;
+    position: relative;
+
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.avatar-sentado {
+    width: 350px;
+    margin-left: -80px;
+     z-index: 5;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+    /* Sombra */
+}
+
+.contenido-derecha {
+    flex: 1;
+    padding-left: 30px;
+}
+
+.contenido-derecha h2 {
+    font-family: var(--f-titulo);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
+    color: var(--marronPergamino);
+    font-weight: 700;
+}
+
+.grilla-videos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+.video-container video {
+    width: 100%;
+    border: 10px solid rgba(255, 255, 255, 0.655);
+    /* Marco blanco tipo foto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+
+
+
+/* =============================================
+      CARTA TESOROS
+    ============================================= */
+
+
+
+
+.tampergamino2{
+    min-height: 850px;
+}
+
+
+.pergamino-contenido2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+
+
+
+.texto-pergamino2 {
+    color: var(--marronPergamino);
+    font-size: clamp(1.25rem, 2vw, 2.25rem);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 5%;
+}
+
+
+
+
+.galeria {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+  
+}
+
+.item-retrato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 16.25rem;
+    flex-shrink: 0;
+  
+}
+
+
+.item-retrato img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.contenedor-magico {
+    position: relative;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  
+}
+
+.contenedor-magico video {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    z-index: 1;
+  
+}
+
+.contenedor-magico .marco {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    pointer-events: none;
+  
+}
+
+
+
+
+.contenedor-placa {
+    width: 80%;
+    min-height: 60px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    background: linear-gradient(145deg,
+            #bdc3c7 0%,
+            #eaeeef 25%,
+            #bdc3c7 50%,
+            #95a5a6 75%,
+            #bdc3c7 100%);
+
+
+    border-radius: 4px;
+    border: 1px solid #7f8c8d;
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.8),
+        /* Brillo interno superior */
+        0 4px 6px rgba(0, 0, 0, 0.3);
+   
+
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.contenedor-placa p {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+   font-size: clamp(0.25rem, 1.2vw, 0.95rem);
+    font-family: var(--f-cuerpo);
+    line-height: 1.2;
+    color: var(--marronPergamino);
+
+}
+
+
+
+
+
+/* -------------2----------------- */
+
+
+
+.tampergamino3{
+    min-height: 900px;
+}
+
+.titulo-pergamino2 {
+
+    font-family: var(--f-titulo);
+    color: var(--marronPergamino);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+
+/* Contenedor principal */
+.orden {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center;
+    gap: 30px; /* Espacio entre el avatar y el bloque de la pizarra */
+    width: 100%;
+}
+
+
+.orden2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Espacio entre la pizarra y la fila de adornos */
+}
+
+/* Adornos */
+.orden2 > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:3rem; /* Espacio entre cada círculo de adorno */
+}
+
+/* tamaños  */
+.orden > img { 
+    height: 450px; /* Tamaño del avatar */
+    width: auto;
+}
+
+.orden2 > img { 
+    width: 500px; /* Tamaño de la pizarra */
+    height: auto;
+}
+
+.orden2 div img {
+    width: 120px; /* Tamaño de cada adorno (círculo con texto) */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.orden2 div img:hover {
+    transform: scale(1.1); /* Efecto sutil al pasar el mouse */
+}
+
+
+/* =============================================
+      CARTA ALQUIMIA
+    ============================================= */
+
+.acomodo{
+    align-items: center;
+    width: 50rem;
+    margin-bottom: 5%;
+}
+
+
+
+
+
+
+
+
+
+/* =============================================
+       FOOTER
+    ============================================= */
+
+
+
+
+
+.footer-estacion {
+    background-color: #050505;
+    /* Negro profundo */
+    padding: 6rem 1rem 3rem;
+    position: relative;
+    border-top: 1px solid var(--dorado-tenue);
+    text-align: center;
+    overflow: hidden;
+}
+
+
+.footer-estacion::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.footer-destinos {
+    margin: 2rem 0;
+    font-family: var(--f-acentos);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-destinos a {
+    color: var(--crema);
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-destinos a:hover {
+    color: var(--dorado);
+    text-shadow: 0 0 8px var(--dorado);
+}
+
+.divisor {
+    color: var(--dorado);
+    margin: 0 1rem;
+}
+
+.footer-info {
+    margin-top: 2rem;
+    color: var(--crema-oscura);
+    font-style: italic;
+}
+
+
+
+.copyright-hufflepuff {
+    margin-top: 4rem;
+    font-size: 0.75rem;
+    color: #555;
+    font-family: var(--f-acentos);
+   
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+   
+}
+
+
+.copyright-hufflepuff span.simbolo {
+    color: var(--texto-apagado);
+    margin: 0 0.8rem;
+    font-weight: bold;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+/* =============================================
+       RESPONSIVE velas
+    ============================================= */
+@media (max-width: 600px) {
+
+  
+    .v4,
+    .v5,
+    .v9,
+    .v10 {
+        display: none;
+    }
+
+   
+    .vela-cuerpo {
+        width: 10px;
+        height: 38px;
+    }
+
+    .vela-llama {
+        width: 7px;
+        height: 11px;
+    }
+
+    .vela-mecha {
+        width: 1px;
+        height: 5px;
+    }
+
+    .vela-base {
+        width: 13px;
+        height: 4px;
+    }
+
+
+    /* Avatar */
+    .avatar-circulo {
+        width: 160px;
+        height: 160px;
+    }
+
+    .avatar-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+}
